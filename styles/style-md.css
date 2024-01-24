@@ -1,0 +1,11 @@
+@media screen and (max-width: 991px) {
+    .header-burger--btn {
+        display: block;
+    }
+    header .nav-menu {
+        display: none;
+    }
+    .courses .courses-item {
+        flex: 0 0 48%;
+    }
+}

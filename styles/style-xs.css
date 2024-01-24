@@ -1,0 +1,34 @@
+@media screen and (max-width: 575px) {
+    .jumbotron {
+        height: 250px;
+    }
+    .jumbotron--img img {
+        height: 250px;
+    }
+    .jumbotron--txt {
+        font-size: 1.3rem;
+    }
+    .jumbotron--txt h2 {
+
+        line-height: 1.3rem;
+        padding-bottom: 15px;
+     }
+
+    .learning-info {
+        padding: 35px 0;
+        font-size: 17px;
+        line-height: 1.8em;
+    }
+    .learning-info .more {
+        font-size: 1.3rem;
+        margin-top: 22px;
+    }
+    .courses .courses-item {
+        flex: 0 0 100%;
+    }
+
+    .footer {
+        padding: 50px 0 25px;
+    }
+
+}

@@ -1,0 +1,22 @@
+@media screen and (max-width: 767px) {
+    .container {
+        padding: 0 20px;
+    }
+    .jumbotron--txt {
+        font-size: 1.8rem;
+    }
+    .jumbotron--txt h2 {
+
+        line-height: 1.8rem;
+        padding-bottom: 25px;
+     }
+
+    .learning-info {
+        font-size: 21px;
+        line-height: 1.8em;
+    }
+    .learning-info .more {
+        font-size: 1.4rem;
+    }
+
+}
