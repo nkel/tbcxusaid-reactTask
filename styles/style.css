@@ -304,10 +304,84 @@ header .nav-item {
     background: url("../images/arrow.svg") no-repeat center;
     margin-right: 9px;
 }
+
 .partners {
     padding: 35px 0;
     background: var(--gray-2b);
 }
+
+.partners .carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+    height: 100px;
+}
+
+.partners .carousel-item {
+    display: none;
+    margin: auto;
+}
+
+.partners .carousel-item img {
+   max-width: 100%;
+}
+.partners .carousel-item.active {
+     display: block;
+     opacity: 0;
+ }
+
+.carousel-wrapper {
+    position: relative;
+    padding-bottom: 60px;
+}
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.dot-item {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--main-color);
+    margin: 0 4px;
+    flex: 0 0 7px;
+    cursor: pointer;
+}
+.dot-item.active,
+.dot-item:hover {
+    background: rgba(244,244,244,0.5);
+}
+
+.carousel-btns {
+    position: absolute;
+    top: calc((100% - 60px )/ 2 );
+    left: 10%;
+    right: 10%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+}
+.carousel-btns button {
+    width: 21px;
+    height: 41px;
+    cursor: pointer;
+}
+.carousel-btns button.next {
+    transform: rotate(180deg);
+}
+.carousel-btns button svg {
+    fill: var(--main-color);
+}
+.carousel-btns button:hover svg {
+     fill: rgba(244,244,244,0.5);
+ }
 
 .faq {
     padding: 100px 0 70px;
