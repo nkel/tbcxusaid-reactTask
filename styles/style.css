@@ -306,7 +306,7 @@ header .nav-item {
 }
 
 .partners {
-    padding: 35px 0;
+    padding: 35px 0 60px;
     background: var(--gray-2b);
 }
 
@@ -362,8 +362,8 @@ header .nav-item {
 .carousel-btns {
     position: absolute;
     top: calc((100% - 60px )/ 2 );
-    left: 10%;
-    right: 10%;
+    left: 5%;
+    right: 5%;
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;

@@ -26,6 +26,20 @@
     .courses .courses-item {
         flex: 0 0 100%;
     }
+    .courses .courses-title,
+    .partners .partners-title {
+     margin-bottom: 42px;
+    }
+    .faq {
+        padding: 60px 0 40px;
+    }
+
+    .faq-header h2 {
+        font-size: 20px;
+    }
+    .faq-header a {
+        font-size: 18px;
+    }
 
     .footer {
         padding: 50px 0 25px;

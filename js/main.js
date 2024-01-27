@@ -1,22 +1,3 @@
-//
-// /* --- Accordion slide down --- */
-// $('.accordion-item--btn').click(function (){
-//     $(this).parents('.accordion-item').find('.accordion-item--content').slideToggle();
-//     $(this).parents('.accordion-item').toggleClass('active');
-// });
-//
-//
-// /* --- Responsive menu --- */
-// $('.header-burger_menu--btn').click(function (){
-//
-//     $(this).toggleClass('menu_isOpen');
-//     $('.header').toggleClass('menu_isOpen');
-//
-//     $('.responsive-menu_wrapper').toggle();
-//
-//     $('html').toggleClass('noScroll');
-// });
-
 
 //  ჰედერი გამჭირვალობა სქროლის დროს
 
@@ -68,6 +49,7 @@ class Carousel {
 
     itemsQuantity;
     isActive = 0;
+    animationInfinity;
 
     constructor( elementId, responsiveDaTa ) {
         this.elementId = elementId;
@@ -92,6 +74,14 @@ class Carousel {
             this.opacityUp(this.carouselitems[i]);
         }
         this.generateBullets();
+        this.animation();
+    }
+
+
+    animation() {
+        this.animationInfinity = setInterval(()=>{
+            this.next();
+        },2500)
     }
 
     slideMove( ) {
@@ -138,26 +128,35 @@ class Carousel {
             const newDiv = document.createElement("div");
             newDiv.setAttribute("data-n",  i+1);
             newDiv.setAttribute("class",  "dot-item");
-            if(i == 0){
-                newDiv.classList.add("active");
-            }
             newDiv.addEventListener("click",function(){
                 partnerCarousel.isActive = this.getAttribute("data-n")-1;
                 partnerCarousel.slideMove();
+                partnerCarousel.activeBullet(partnerCarousel.isActive);
 
             });
             dotElementContainer.appendChild(newDiv);
-           }
+        }
+        this.activeBullet(0);
+    }
+
+    activeBullet(n=0){
+        const dotElementContainer = this.carouselElement.querySelector(".carousel-dots");
+         if(dotElementContainer.querySelector(".dot-item.active") !== null){
+               dotElementContainer.querySelector(".dot-item.active").classList.remove("active");
+         }
+        dotElementContainer.getElementsByClassName("dot-item")[n].classList.add("active");
     }
 
 
     next() {
         (this.isActive < this.carouselElement.querySelectorAll('.dot-item').length-1) ? this.isActive +=1 : this.isActive = 0 ;
         this.slideMove();
+        this.activeBullet(this.isActive);
     }
     prev() {
         (this.isActive > 0 ) ? this.isActive-- : this.isActive = this.carouselElement.querySelectorAll('.dot-item').length-1 ;
         this.slideMove();
+        this.activeBullet(this.isActive);
     }
 }
 
@@ -188,10 +187,12 @@ function detectItemQuantity() {
 const prevBtn = document.getElementById("partnerCarousel").querySelector(".prev");
 prevBtn.addEventListener("click", function(){
     partnerCarousel.prev();
+    clearInterval(partnerCarousel.animationInfinity);
 });
 
 const nextBtn = document.getElementById("partnerCarousel").querySelector(".next");
 nextBtn.addEventListener("click", function(){
     partnerCarousel.next();
+    clearInterval(partnerCarousel.animationInfinity);
 });
 
